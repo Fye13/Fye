@@ -137,10 +137,10 @@ addressInput.addEventListener("input", function(event){
 
 // finalizar pedido
 checkoutBtn.addEventListener("click", function(){
-    const isOpen = checkRestaurantOpen();
+    const isOpen = checkStoreOpen();
     if(!isOpen){
         Toastify({
-            text: "Restaurante fechado! Consulte o horário de funcionamento.",
+            text: "Loja fechada! Consulte o horário de funcionamento.",
             duration: 3000,
             close: true,
             gravity: "top", // `top` or `bottom`
@@ -160,7 +160,7 @@ checkoutBtn.addEventListener("click", function(){
         return;
     }
 
-    // enviar o pedido para api do zapzap
+    // enviar o pedido para api do whatsapp
     const cartItems = cart.map((item) => {
         return (
             ` ${item.name} Quantidade: (${item.quantity}) Preço: R$${item.price} |`
@@ -168,7 +168,7 @@ checkoutBtn.addEventListener("click", function(){
     }).join("")
 
     const message = encodeURIComponent(cartItems)
-    const phone = "67991851966"
+    const phone = "67991187448"
 
     window.open(`https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}`, "_blank")
 
@@ -178,7 +178,7 @@ checkoutBtn.addEventListener("click", function(){
 })
 
 // verificar a hora e manipular o card horario
-function checkRestaurantOpen(){
+function checkStoreOpen(){
     const data = new Date();
     const hora = data.getHours();
     return hora >= 18 && hora < 24; // boolean true/false
@@ -187,7 +187,7 @@ function checkRestaurantOpen(){
 }
 
 const spanItem = document.getElementById("date-span")
-const isOpen = checkRestaurantOpen();
+const isOpen = checkStoreOpen();
 
 if(isOpen){
     spanItem.classList.remove("bg-red-500");

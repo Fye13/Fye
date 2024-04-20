@@ -1,7 +1,7 @@
 {
-  "name": "projeto-cardapio",
+  "name": "Fye",
   "version": "1.0.0",
-  "description": "Projeto Cardápido - Sujeito Programador, refazendo tudo",
+  "description": "Fye",
   "main": "index.js",
   "scripts": {
     "dev": "npx tailwindcss -i ./styles/style.css -o ./styles/output.css --watch"
